@@ -1,0 +1,112 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+body {
+    background-color: rgb(201, 201, 201);
+}
+
+header {
+    padding: 0 7%;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+header .logo{
+    font-weight: bold;
+    color: #333;
+    font-size: 25px;
+}
+.navbar > ul{
+    list-style: none;
+    display: flex;
+}
+.navbar ul li{
+    position: relative;
+}
+.navbar ul li a{
+    display: block;
+    padding: 20px;
+    color: #333;
+    font-size: 20px;
+}
+.navbar ul li a:hover{
+    background-color: rgba(0,0,0,.3);
+}
+.navbar ul li ul{
+    list-style: none;
+    position: absolute;
+    width: 200px;
+    background-color: #fff;
+    flex-direction: column;
+    display: none;
+}
+.navbar ul li ul li{
+    border-top: 1px solid rgba(0,0,0,.1);
+    width: 100%;
+}
+.navbar ul li ul li ul{
+    left: 200px;
+    top: 0;
+}
+.navbar ul li:focus-within > ul,
+.navbar ul li:hover > ul{
+    display: flex;
+}
+
+#menu-bar{
+    display: none;
+}
+.icon-menu{
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 991px) {
+    header {
+        padding: 20px;
+    }
+    
+    .icon-menu {
+        display: block;
+    }
+    header .navbar {  
+        position: absolute;      
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        display: none;
+    }
+    header .navbar ul{
+        flex-direction: column;
+    }
+    header .navbar ul li li a{
+        padding-left: 40px;
+    }
+    header .navbar ul li li li a{
+        padding-left: 60px;
+    }
+    header .navbar ul li ul{
+        position: relative;
+        background-color: #999;
+        width: 100%;
+    }
+    .navbar ul li ul li ul {
+        left: 0;
+    }
+    #menu-bar:checked ~ .navbar {
+        display: block;
+    }
+}
